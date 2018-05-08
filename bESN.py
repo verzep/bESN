@@ -3,6 +3,9 @@ from sklearn import linear_model
 from numpy import linalg as LA
 import numpy as np
 import matplotlib.pyplot as plt
+import scipy
+
+
 from joblib import Parallel, delayed
 from tqdm import tqdm
 
@@ -244,7 +247,7 @@ class bESN:
         lun = signal[settling: settling + len(self.memory[settling + 1:])]
         ip = np.array(lun).reshape(aa.shape[0], 1)
 
-        print aa.shape, ip.shape
+        print (aa.shape, ip.shape)
         ext_state = np.hstack((aa, ip))
 
         self.W_out = np.dot(np.linalg.pinv(ext_state),
@@ -281,8 +284,8 @@ class bESN:
         if make_plot:
             train_prev = self.predict(self.memory[settling + 1: 1 + T])
 
-            print max(train_prev), min(train_prev)
-            print 'error on the train set ', np.mean((train_prev - signal_train_evaluate) ** 2)
+            print (max(train_prev), min(train_prev))
+            print ('error on the train set ', np.mean((train_prev - signal_train_evaluate) ** 2))
 
             plt.plot(signal_test_evaluate, label="true")
             plt.plot(prev, label="predicted")
@@ -317,7 +320,7 @@ class bESN:
         if make_plot:
             train_prev = self.predict(self.memory[settling + 1: 1 + T])
 
-            print 'error on the train set ', np.mean((train_prev - signal_train_evaluate) ** 2)
+            print ('error on the train set ', np.mean((train_prev - signal_train_evaluate) ** 2))
 
             plt.plot(signal_test_evaluate, label="true")
             plt.plot(prev, label="predicted")
