@@ -1,13 +1,11 @@
 
 import matplotlib
-
+matplotlib.use('Agg')
 from joblib import Parallel, delayed
 import matplotlib.pyplot as plt
 import numpy as np
 from tqdm import tqdm
 import bESN
-
-
 import functions_bESN as fb
 
 
@@ -17,9 +15,9 @@ def Sim(N, k, d, T, c, noise):
 
 
 
-matplotlib.use('Agg')
 
-k_val = np.linspace(0.1, 300, 100)
+
+k_val = np.linspace(1, 300, 100)
 n_val = np.linspace(0, 1.1, 100)
 #d_val = np.linspace(-0.5, 0.5, 100)
 
