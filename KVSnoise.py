@@ -5,20 +5,16 @@ from joblib import Parallel, delayed
 import matplotlib.pyplot as plt
 import numpy as np
 from tqdm import tqdm
-import bESN
-import functions_bESN as fb
 
+import functions_bESN as fb
+import bESN
 
 def Sim(N, k, d, T, c, noise):
     return np.mean( fb.simulate(N=N, k=k, d=d, T=T, c = 0.5, noise = noise).entropy()[100:])
 
 
-
-
-
-
-k_val = np.linspace(1, 300, 10)
-n_val = np.linspace(0, 1.1, 10)
+k_val = np.linspace(1, 300, 100)
+n_val = np.linspace(0, 1.1, 100)
 #d_val = np.linspace(-0.5, 0.5, 100)
 
 x = k_val[:]
