@@ -17,8 +17,8 @@ def Sim(N, k, d, T, c, noise):
 
 
 
-k_val = np.linspace(1, 300, 100)
-n_val = np.linspace(0, 1.1, 100)
+k_val = np.linspace(1, 300, 10)
+n_val = np.linspace(0, 1.1, 10)
 #d_val = np.linspace(-0.5, 0.5, 100)
 
 x = k_val[:]
