@@ -24,8 +24,8 @@ y = n_val[:]
 
 #np.mean( fb.simulate(1000, k=k, d=0.15, T=300, c = 0.5, noise = n).entropy()[100:] ) for k in k_val] for n in tqdm(n_val)
 
-output = Parallel(-1)(delayed(Sim)(N = 1000, k=k, d=0.15, T=300, c = 0.5, noise = n)   for n in n_val for k in tqdm(k_val))
-
+output = Parallel(-1)(delayed(Sim)(N = 1000, k=k, d=0.15, T=300, c = 0.5, noise = n)   for n in tqdm(n_val) for k in k_val)
+print("Finito")
 
 
 Var = np.array(output).reshape(len(y), len(x))
