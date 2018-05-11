@@ -24,7 +24,7 @@ y = d_val[:]
 #np.mean( fb.simulate(1000, k=k, d=0.15, T=300, c = 0.5, noise = n).entropy()[100:] ) for k in k_val] for n in tqdm(n_val)
 
 
-signal = np.array([ (sin(0.5*x) +sin (x*5/17) + sin(x*3/19))/3.   for x in range(300)])
+signal = np.array([ (np.sin(0.5*x) +np.sin(x*5/17) + np.sin(x*3/19))/3.   for x in range(300)])
 
 
 output = Parallel(-1)(delayed(Sim)(N = 1000, k=150, d=d, signal = a*signal, c = 0.5, noise =0) for d in tqdm(d_val) for a in a_val)
